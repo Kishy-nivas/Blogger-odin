@@ -40,8 +40,10 @@ class ArticlesController < ApplicationController
 
 
 
+
+
   def article_params
-    params.require(:article).permit(:title,:body)
+    params.require(:article).permit(:title,:body,:image,:tag_list)
   end
 
 end

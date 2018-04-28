@@ -9,10 +9,23 @@
   <div class="container">
     <h1 class="display-4"><%= @article.title %> </h1>
     <p class="lead"><%= @article.body %> </p>
+    <% if @article.image.exists? %> 
+      <%= image_tag @article.image.url %> 
+    <% end %> 
 
   </div>
 </div>
 <p class="form-text text-muted">posted at: <%= distance_of_time_in_words(Time.now,@article.created_at) %> ago </p>
+
+<% if @article.tags.any? %> 
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name,tag_path(tag) %> 
+  <% end %> 
+<% else %> 
+  <p class="form-text text-muted">No tags</p>
+<% end %>
+
+<hr>
 
     <%= link_to 'Delete', article_path(@article),method: :delete,data:{ confirm: "Do you really want to delete"}, class:
   'btn btn-primary' %> 
