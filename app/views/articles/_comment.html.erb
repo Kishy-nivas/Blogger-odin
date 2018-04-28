@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-header">
+    <%= comment.author_name %> says:
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= comment.body %> </p>
+    <p class="form-text text-muted">posted at: <%= distance_of_time_in_words(Time.now,comment.created_at) %> ago </p>
+  </div>
+</div>

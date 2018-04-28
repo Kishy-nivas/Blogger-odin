@@ -1,0 +1,30 @@
+<!-- <h2> Comment form </h2>
+<%= form_for [ @article, @comment] do |f| %>
+  <p>
+    <%= f.label :author_name %> 
+    <%= f.text_field :author_name %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %> 
+  </p>
+  <p>
+    <%= f.submit %> 
+
+  </p>
+<% end %>
+
+--> 
+<%= form_for [@article,@comment] do |f| %>
+  <div class="form-group">  
+    <%= f.label :author_name,"Your name" %> 
+    <%= f.text_field :author_name, class: "form-control"%> 
+
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <%= f.label :body,"Your comment" %> 
+    <%= f.text_area :body,class: "form-control" %> 
+  </div>
+  <%= f.submit "submit",class: "btn btn-primary" %>
+<% end %> 

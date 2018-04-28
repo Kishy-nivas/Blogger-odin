@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Article </title>
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><%= @article.title %> </h1>
+    <p class="lead"><%= @article.body %> </p>
+
+  </div>
+</div>
+<p class="form-text text-muted">posted at: <%= distance_of_time_in_words(Time.now,@article.created_at) %> ago </p>
+
+    <%= link_to 'Delete', article_path(@article),method: :delete,data:{ confirm: "Do you really want to delete"}, class:
+  'btn btn-primary' %> 
+      
+    <%= link_to 'Edit', edit_article_path(@article),class: 'btn btn-primary' %> 
+    <br>
+    <br>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Total comments : <%= @article.comments.size %> </h2>
+    <%= render partial: 'articles/comment',collection: @article.comments %> 
+    
+  </div>
+  
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: 'comments/form' %> 
+  </div>
+  
+  
+</div>
+
+  
+
+</body>
+</html>

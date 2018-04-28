@@ -1,0 +1,37 @@
+<!--  <%= form_for (@article) do |f| %> 
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %> 
+  </ul>
+
+  <p>
+    <%= f.label :title %> 
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.submit %> 
+  </p>
+
+  <% end %>  --> 
+
+
+
+
+<%= form_for (@article) do |f| %> 
+  <div class="form-group">
+    <%= f.label :title %> 
+    <%= f.text_field :title,class:"form-control" %> 
+    <%= f.label :body %> 
+    <%= f.label :body %> 
+    <%= f.text_area :body,class:"form-control" %>
+    <br>
+    <%= f.submit "submit",class: "btn btn-primary" %> 
+  </div>
+<% end %> 
